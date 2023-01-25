@@ -1,9 +1,12 @@
 <script setup lang="ts">
-
+import {useDiscussionsStore} from "@/stores/Discussions"
+import DiscussionsSection from "@/components/DiscussionsSection.vue"
+const store = useDiscussionsStore()
 </script>
 
 <template>
   <main>
+    <DiscussionsSection :discussions="store.discussions" />
   </main>
 </template>
 
