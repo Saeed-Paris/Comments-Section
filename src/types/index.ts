@@ -10,13 +10,13 @@ export interface IComment {
     text: string;
     likes: number;
     iLikedIt: boolean;
-    
+    replies?: IComment[];
 }
 
-export interface IDiscussion extends IComment {
-    replies: IComment[];
-}
+// export interface IDiscussion extends IComment {
+//     replies: IComment[];
+// }
 
-export interface IProps {
-    comments: IComment[];
-}
+// export interface IProps {
+//     comments: IComment[];
+// }
