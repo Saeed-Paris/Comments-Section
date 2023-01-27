@@ -1,0 +1,10 @@
+$primary-color: white;
+$gray-color: #f8f8f8;
+$secondary-color: #235EE7;
+$border-color: #E4EBEF;
+
+@mixin avatar-maker($size: 50px) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
