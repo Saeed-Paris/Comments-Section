@@ -19,8 +19,8 @@ const props = defineProps<{
             <div class="comment-body">
                 <UserTitles class="comment-user" :time-stamp="discussion.date" :user="discussion.user" />
                 <p>{{ discussion.text }}</p>
-                <ReactButtonsComp class="react-btn" :i-liked-it="discussion.iLikedIt" :is-parent="!!discussion.replies"
-                    :id="discussion.id" />
+                <ReactButtonsComp :likes="discussion.likes" class="react-btn" :i-liked-it="discussion.iLikedIt"
+                    :is-parent="!!discussion.replies" :id="discussion.id" />
             </div>
             <template v-if="discussion.replies">
                 <CommentBox :depth="props.depth + 1" class="comment-replies" v-for="reply in discussion.replies"
@@ -33,6 +33,10 @@ const props = defineProps<{
 <style lang="scss">
 .active-btn {
     background-color: $secondary-color;
+
+    span {
+        color: white;
+    }
 
     svg path {
         fill: white;
@@ -122,6 +126,9 @@ new-discussion-container {
 
             .like-btn {
                 padding: 3px 16px;
+                display: flex;
+                align-items: center;
+                gap: 4px;
             }
         }
 

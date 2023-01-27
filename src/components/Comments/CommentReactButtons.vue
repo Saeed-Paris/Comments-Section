@@ -7,7 +7,8 @@ import LikeSvg from '../svgs/LikeSvg.vue';
 const props = defineProps<{
     isParent: boolean,
     id: number
-    iLikedIt: boolean
+    iLikedIt: boolean,
+    likes: number
 }>()
 const store = useDiscussionsStore()
 function toggleLike(id: number): void {
@@ -38,6 +39,7 @@ async function newReply(id: number) {
     <div>
         <button @click="toggleLike(props.id)" :class="{ 'active-btn': iLikedIt }" class="like-btn">
             <LikeSvg />
+            <span>{{ props.likes }}</span>
         </button>
         <button class="reply-btn" v-if="isParent" @click="newReply(props.id)">{{
             parentID == props.id ? 'Cancel' : 'Reply'
