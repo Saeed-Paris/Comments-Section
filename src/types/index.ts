@@ -5,12 +5,12 @@ export interface IUser {
 
 export interface IComment {
     id: number;
-    date: number; // unix timestamp in milliseconds.
+    date: number;
     user: IUser;
     text: string;
     likes: number;
     iLikedIt: boolean;
-    replies?: IComment[];
+    replies?: IComment[]; //I moved replies here to have infinit layer of comments of replies
 }
 
 // export interface IDiscussion extends IComment {
