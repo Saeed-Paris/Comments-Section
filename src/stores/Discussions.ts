@@ -76,7 +76,8 @@ export const useDiscussionsStore = defineStore({
         parentID: null
     }),
     getters: {
-
+        getParentID: (state) => state.parentID,
+        getAllDiscussions: (state) => state.discussions
     },
     actions: {
         createNewDiscussion(msg: string) {

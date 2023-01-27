@@ -14,10 +14,10 @@ const store = useDiscussionsStore()
 function toggleLike(id: number): void {
     store.toggleLike(id)
 }
-let parentID = computed(() => store.parentID)
+let parentID = computed(() => store.getParentID)
 async function newReply(id: number) {
-    store.parentID == id ? store.parentID = null : store.parentID = id;
-    let element = document.querySelector(`.comment-${store.parentID}`);
+    parentID.value == id ? store.parentID = null : store.parentID = id;
+    let element = document.querySelector(`.comment-${parentID.value}`);
     let lastChildren = element?.children[element?.childElementCount - 1]
     if (lastChildren) {
         var headerOffset = 100;

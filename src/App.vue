@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { useDiscussionsStore } from "@/stores/Discussions"
 import DiscussionsSection from "@/components/DiscussionsSection.vue"
+import { computed } from "vue";
 const store = useDiscussionsStore()
+
+let discussions = computed(() => store.getAllDiscussions)
+
 </script>
 
 <template>
   <main>
-    <DiscussionsSection :discussions="store.discussions" />
+    <DiscussionsSection :discussions="discussions" />
   </main>
 </template>
 

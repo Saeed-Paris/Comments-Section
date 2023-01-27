@@ -14,7 +14,7 @@ function createNewDiscussion() {
     message.value = ''
 }
 
-let parentID = computed(() => store.parentID)
+let parentID = computed(() => store.getParentID)
 function createReply() {
     store.createNewReply(replyMessage.value)
     store.parentID = null;
